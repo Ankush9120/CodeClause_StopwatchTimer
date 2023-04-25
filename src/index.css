@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+#root {
+  @apply flex justify-center flex-col items-center gap-4;
+}
+#root .tab {
+  @apply flex gap-5;
+}
+main {
+  @apply p-10 px-14 rounded-xl grid gap-10 max-w-full;
+  box-shadow: 5px 10px 30px rgb(0 0 0/0.12);
+}
+main section {
+  @apply grid gap-10;
+}
+main button {
+  @apply bg-neutral-600 text-white p-2 px-4 rounded;
+}
+
+main .options {
+  @apply flex justify-center flex-wrap items-center gap-5;
+}
+
+main .options li {
+  @apply p-1.5 px-3 rounded cursor-pointer w-28 text-center;
+  box-shadow: 0 3px 10px rgb(0 0 0/0.1);
+}
+
+main .options .active {
+  @apply bg-neutral-600 text-white;
+}
+
+#time {
+  @apply flex gap-5;
+}
+#time .circle {
+  @apply flex justify-center items-center relative;
+  width: 150px;
+  height: 150px;
+}
+
+#time div {
+  @apply absolute text-center font-bold text-4xl;
+}
+
+#time .circle svg {
+  @apply relative rotate-[270deg];
+  width: 150px;
+  height: 150px;
+}
+
+#time .circle svg circle {
+  @apply w-full h-full fill-transparent stroke-neutral-500 stroke-[4];
+  transform: translate(5px, 5px);
+}
+
+#time .c1 svg circle:nth-child(2) {
+  stroke: #ff2972;
+}
+#time .c2 svg circle:nth-child(2) {
+  stroke: #9333ea;
+}
+#time .c3 svg circle:nth-child(2) {
+  stroke: #04fc43;
+}
+#time .c4 svg circle:nth-child(2) {
+  stroke: #0ea5e9;
+}
+#time .circle svg circle:nth-child(2) {
+  stroke-dasharray: 440;
+}
+
+#time .circle .dot {
+  @apply h-full w-full absolute z-10 flex justify-center;
+}
+#time .circle .dot::before {
+  @apply absolute w-[15px] h-[15px] rounded-full top-[-3px] z-20;
+  background: #ff2972;
+  content: "";
+  box-shadow: 0 0 8px #ff2972;
+}
+#time .c2 .dot::before {
+  background: #9333ea;
+  box-shadow: 0 0 8px #9333ea;
+}
+#time .c3 .dot::before {
+  background: #04fc43;
+  box-shadow: 0 0 8px #04fc43;
+}
+#time .c4 .dot::before {
+  background: #0ea5e9;
+  box-shadow: 0 0 8px #0ea5e9;
+}
+
+#time .circle span {
+  @apply absolute text-[13px] bottom-6 font-semibold text-neutral-700;
+}
+
+/* Timer CSS  */
+
+.timer .circle div:last-child {
+  @apply w-16;
+  z-index: 50;
+}
+.timer .circle input {
+  @apply w-full h-full text-center focus:placeholder:text-transparent bg-transparent;
+}
+
+@media screen and (max-width: 800px) {
+  main #time {
+    @apply grid grid-cols-2;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  main {
+    @apply h-screen w-screen px-4 py-20;
+  }
+}
+@media screen and (max-width: 350px) {
+  main {
+    @apply border border-red-500 py-4;
+  }
+  main #time {
+    @apply grid-cols-1;
+  }
+  main section{
+    @apply overflow-y-auto top-0 justify-start text-center !important;
+  }
+}
