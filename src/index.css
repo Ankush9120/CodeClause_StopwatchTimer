@@ -11,6 +11,20 @@
   outline: none;
 }
 
+::-webkit-scrollbar {
+  background: transparent;
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(0 0 0/0.2);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(0 0 0/0.5);
+}
+
 html,
 body,
 #root {
@@ -136,12 +150,12 @@ main .options .active {
 }
 @media screen and (max-width: 350px) {
   main {
-    @apply border border-red-500 py-4;
+    @apply py-4;
   }
   main #time {
     @apply grid-cols-1;
   }
-  main section{
+  main section {
     @apply overflow-y-auto top-0 justify-start text-center !important;
   }
 }
